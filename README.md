@@ -49,3 +49,5 @@ I don't have any rights on Official Live2D Unity SDK. I included these for learn
 You can use my codes in this project for free without credit me :3
 
 제가 짠 코드에 한해서는 그냥 가져다 사용하셔도 무방해요 :3
+
++ 구직중입니다. 백수 탈출좀..
