@@ -4,8 +4,11 @@
 It's a Easy-to-use Live2D Wrapper codes!
 
 # What you need
+
 Unity higher than 4.3 (Basic version is OK)
+
 Officail Live2D Unity SDK from http://sites.cybernoids.jp/cubism-sdk2_e/
+
  - Official Live2D Unity SDK (included in Project)
  - Official Live2D Unity SDK FrameWork (included in Project)
 
@@ -25,8 +28,11 @@ Officail Live2D Unity SDK from http://sites.cybernoids.jp/cubism-sdk2_e/
 쉽게 이해하고 쓰도록 주석을 달아둔, 라이브2D (Live2D) 랩핑 코드입니다!
 
 # 뭐가 필요하나요?
+
 4.3 버전 이상의 유니티 (프로가 아니어도 OK)
+
 공식 Live2D Unity SDK from http://sites.cybernoids.jp/cubism-sdk2_e/
+
  - 공식 Live2D Unity SDK (프로젝트에 포함)
  - 공식 Live2D Unity SDK FrameWork (프로젝트에 포함)
 
