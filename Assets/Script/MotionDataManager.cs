@@ -5,18 +5,18 @@ using live2d.framework;
 
 public class MotionDataManager : MonoBehaviour
 {
-	public Live2DMotionData[] liveMotions;
-	public Live2DExpressionData[] liveExpressions;
+	public TextAsset[] liveMotionMtnBytesFiles;
+	public TextAsset[] liveExpressionExpJsonFiles;
 
 	public TextAsset idleMotion;
 
 
-	//입력값으로 줄 모션 아이디를 리플렉션으로 쉽게 참조할 수 있게 할 필요가 있음.
 	public Live2DMotion GetLiveMotion (string motionName)
 	{
-		foreach (var iteredMotion in liveMotions) {
-			if (iteredMotion.motionName == motionName) {
-				return iteredMotion.GetLiveMotion ();
+		foreach (var i in liveMotionMtnBytesFiles) {
+			if (i.name == motionName) {
+				
+				return Live2DMotion.loadMotion(i.bytes);
 			}
 		}
 		return null;
@@ -25,9 +25,9 @@ public class MotionDataManager : MonoBehaviour
 
 	public L2DExpressionMotion GetLiveExpression (string motionName)
 	{
-		foreach (var iteredMotion in liveExpressions) {
-			if (iteredMotion.expressionName == motionName) {
-				return iteredMotion.GetLiveExpression ();
+		foreach (var i in liveExpressionExpJsonFiles) {
+			if (i.name == motionName) {
+				return L2DExpressionMotion.loadJson(i.bytes);
 			}
 		}
 		return null;
@@ -35,22 +35,27 @@ public class MotionDataManager : MonoBehaviour
 
 	public Live2DMotion GetIdleLiveMotion ()
 	{
+		Debug.Log(idleMotion.name);
 		return Live2DMotion.loadMotion (idleMotion.bytes);
 
 	}
 
 	public Live2DMotion GetRandomLiveMotion ()
 	{
-		return liveMotions [UnityEngine.Random.Range (0, liveMotions.Length)].GetLiveMotion ();
+		return Live2DMotion.loadMotion(liveMotionMtnBytesFiles[UnityEngine.Random.Range(0, liveMotionMtnBytesFiles.Length)].bytes);
 	}
 
 	public L2DExpressionMotion GetRandomLiveExpression ()
 	{
-		return liveExpressions [UnityEngine.Random.Range (0, liveExpressions.Length)].GetLiveExpression ();
+		return L2DExpressionMotion.loadJson(liveExpressionExpJsonFiles[UnityEngine.Random.Range(0, liveExpressionExpJsonFiles.Length)].bytes);
 	}
     
 
 }
+
+/*
+
+
 
 [Serializable]
 public class Live2DMotionData
@@ -90,3 +95,5 @@ public class Live2DExpressionData
 		return L2DExpressionMotion.loadJson (expressionData.bytes);
 	}
 }
+
+*/

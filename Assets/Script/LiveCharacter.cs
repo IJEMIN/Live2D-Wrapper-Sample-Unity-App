@@ -44,7 +44,11 @@ public class LiveCharacter : MonoBehaviour
 	public TextAsset mocData;
 
 	//모션과 표정을 관리해준다.
-	private MotionDataManager motionDataManager;
+	public MotionDataManager motionDataManager
+	{
+		get;
+		set;
+	}
 
 	//텍스쳐는 하나 이상을 사용할 수 있으니 배열(리스트)로.
 	public Texture2D[] textureList;
@@ -236,11 +240,12 @@ public class LiveCharacter : MonoBehaviour
 	public void StartMotion (string motionName)
 	{
 
-		Debug.Log ("Start Motion: " + motionName);
+
 		var calledMotion = motionDataManager.GetLiveMotion (motionName);
 
 		if (calledMotion != null) {
 			StartMotion (calledMotion);
+			Debug.Log("Start Motion: " + motionName);
 		}
 	}
 
@@ -257,11 +262,12 @@ public class LiveCharacter : MonoBehaviour
 	//외부에서 SetExpression(모션 파일 식별자)를 호출하면 캐릭터가 현재 모션위에 해당 표정을 겹침.
 	public void SetExpression (string expressionName)
 	{
-		Debug.Log ("Start Expression: " + expressionName);
+		
 		var calledExpression = motionDataManager.GetLiveExpression (expressionName);
 
 		if (calledExpression != null) {
 			SetExpression (calledExpression);
+			Debug.Log("Start Expression: " + expressionName);
 		}
 	}
 
